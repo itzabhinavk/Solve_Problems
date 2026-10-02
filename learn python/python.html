@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn Python - CodeKhoj</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #000;
+      transition: background 0.4s, color 0.4s;
+      display: flex;
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #2b2d42;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+      padding: 20px 10px;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #fca311;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin: 5px 0;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #ef233c;
+    }
+
+    .content {
+      margin-left: 240px;
+      flex: 1;
+    }
+
+    header {
+      background-color: #2b2d42;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: flex-end;
+      margin: 10px 20px 0 20px;
+    }
+
+    .controls-box {
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 8px;
+      background-color: #fff;
+      display: flex;
+      gap: 10px;
+    }
+
+    .dark-mode .controls-box {
+      background-color: #1e1e1e;
+      border-color: #555;
+    }
+
+    .controls-box button {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #fca311;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .controls-box button:hover {
+      background-color: #ffbb33;
+    }
+
+    .search-bar {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 60%;
+      max-width: 300px;
+      border: 2px solid #ccc;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .topic {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.4s;
+    }
+
+    .topic:hover {
+      transform: scale(1.02);
+    }
+
+    .dark-mode .topic {
+      background-color: #1e1e1e;
+    }
+
+    .topic h2 {
+      color: #2b2d42;
+    }
+
+    .dark-mode .topic h2 {
+      color: #fca311;
+    }
+
+    .code-block {
+      display: flex;
+      background-color: #f8f8f8;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    .code-block::before {
+      content: "";
+      width: 8px;
+      background-color: #ccc;
+    }
+
+    .code-block pre {
+      margin: 0;
+      padding: 10px;
+      flex-grow: 1;
+    }
+
+    .dark-mode .code-block {
+      background-color: #2a2a2a;
+    }
+
+    .dark-mode .code-block::before {
+      background-color: #444;
+    }
+
+    .topic a button {
+      margin-top: 15px;
+      padding: 10px 14px;
+      background-color: #fca311;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .topic a button:hover {
+      background-color: #ffb933;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Python Topics</h2>
+    <a href="#intro">Introduction</a>
+    <a href="#variables">Variables</a>
+    <a href="#datatypes">Data Types</a>
+    <a href="#conditions">If-Else</a>
+    <a href="#loops">Loops</a>
+    <a href="#functions">Functions</a>
+    <a href="#oop">OOP Basics</a>
+  </div>
+
+  <div class="content">
+    <header>
+      <h1>Learn Python - CodeKhoj</h1>
+      <p>Your Beginner-Friendly Python Guide</p>
+    </header>
+
+    <div class="controls">
+      <div class="controls-box">
+        <button onclick="toggleDarkMode()">🌙</button>
+        <button onclick="changeFontSize('increase')">A+</button>
+        <button onclick="changeFontSize('decrease')">A-</button>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" onkeyup="searchTopics()" placeholder="Search topic...">
+    </div>
+
+    <main id="mainContent">
+      <div class="topic" id="intro">
+        <h2>Introduction to Python</h2>
+        <p>Python is a high-level, interpreted programming language...</p>
+        <div class="code-block"><pre><code>print("Hello, World!")</code></pre></div>
+        <a href="https://www.w3schools.com/python/python_intro.asp" target="_blank">
+          <button>Read More on W3Schools</button>
+        </a>
+      </div>
+
+      <div class="topic" id="variables">
+        <h2>Variables</h2>
+        <p>Variables are used to store values in Python...</p>
+        <div class="code-block"><pre><code>x = 5
+y = "Hello"
+print(x, y)</code></pre></div>
+        <a href="https://www.w3schools.com/python/python_variables.asp" target="_blank">
+          <button>Read More on W3Schools</button>
+        </a>
+      </div>
+
+      <div class="topic" id="datatypes">
+        <h2>Data Types</h2>
+        <p>Python supports types like int, float, string, list, dict...</p>
+        <div class="code-block"><pre><code>number = 10
+price = 19.99
+name = "Alice"
+items = [1, 2, 3]
+data = {"name": "Bob", "age": 25}</code></pre></div>
+        <a href="https://www.w3schools.com/python/python_datatypes.asp" target="_blank">
+          <button>Read More on W3Schools</button>
+        </a>
+      </div>
+
+      <div class="topic" id="conditions">
+        <h2>If-Else Conditions</h2>
+        <p>Decision making with if, elif, and else in Python.</p>
+        <div class="code-block"><pre><code>age = 18
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")</code></pre></div>
+        <a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank">
+          <button>Read More on W3Schools</button>
+        </a>
+      </div>
+
+      <div class="topic" id="loops">
+        <h2>Loops</h2>
+        <p>Repeat tasks using for and while loops.</p>
+        <div class="code-block"><pre><code>for i in range(5):
+    print(i)</code></pre></div>
+        <a href="https://www.w3schools.com/python/python_for_loops.asp" target="_blank">
+          <button>Read More on W3Schools</button>
+        </a>
+      </div>
+
+      <div class="topic" id="functions">
+        <h2>Functions</h2>
+        <p>Functions are blocks of reusable code.</p>
+        <div class="code-block"><pre><code>def greet(name):
+    print("Hello", name)</code></pre></div>
+        <a href="https://www.w3schools.com/python/python_functions.asp" target="_blank">
+          <button>Read More on W3Schools</button>
+        </a>
+      </div>
+
+      <div class="topic" id="oop">
+        <h2>OOP Basics</h2>
+        <p>Classes and Objects in Python help build structure.</p>
+        <div class="code-block"><pre><code>class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print("Hello", self.name)</code></pre></div>
+        <a href="https://www.w3schools.com/python/python_classes.asp" target="_blank">
+          <button>Read More on W3Schools</button>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    let currentFontSize = 16;
+    function changeFontSize(action) {
+      if (action === 'increase') {
+        currentFontSize += 2;
+      } else if (action === 'decrease') {
+        currentFontSize = Math.max(12, currentFontSize - 2);
+      }
+      document.querySelectorAll('.topic').forEach(el => {
+        el.style.fontSize = currentFontSize + 'px';
+      });
+    }
+
+    function searchTopics() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const topics = document.querySelectorAll('.topic');
+      topics.forEach(topic => {
+        const text = topic.innerText.toLowerCase();
+        topic.style.display = text.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
