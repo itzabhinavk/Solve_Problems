@@ -16,6 +16,6 @@ t.goto(-40, 60)
 t.setheading(-60)
 t.pendown()
 for _ in range(5):
-    t.forward(20)
+    t.forward(20) 
     t.left(30)
-t.done()
+t.done() 
