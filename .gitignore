@@ -1,10 +1,5 @@
+.venv/
+.venv-*/
 __pycache__/
 *.py[cod]
-*$py.class
 *.exe
-.venv/
-venv/
-env/
-.env
-.env.*
-!.env.example
