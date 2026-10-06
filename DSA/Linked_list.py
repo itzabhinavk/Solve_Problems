@@ -114,37 +114,37 @@ def reverse_linked_list(head):
 
 
 #                   ---------- Test ----------
-print("Original list:")
-print_list(head)  # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
+if __name__ == "__main__":
+    print("Original list:")
+    print_list(head)  # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
 
-print("Sum of nodes:", sum_of_nodes(head))  # sum_of_nodes function ko call karte hain, jo ki linked list ke saare nodes ka sum calculate karega
-print("Count of nodes:", count_nodes(head))  # count_nodes function ko call karte hain, jo ki linked list ke saare nodes ka count calculate karega
+    print("Sum of nodes:", sum_of_nodes(head))  # sum_of_nodes function ko call karte hain, jo ki linked list ke saare nodes ka sum calculate karega
+    print("Count of nodes:", count_nodes(head))  # count_nodes function ko call karte hain, jo ki linked list ke saare nodes ka count calculate karega
 
-head = insert_at_beginning(head, 5)
-print("After inserting 5 at beginning:")
-print_list(head)                             # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
-print("Sum of nodes:", sum_of_nodes(head))
-print("Count of nodes:", count_nodes(head))
+    head = insert_at_beginning(head, 5)
+    print("After inserting 5 at beginning:")
+    print_list(head)                             # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
+    print("Sum of nodes:", sum_of_nodes(head))
+    print("Count of nodes:", count_nodes(head))
 
-head = insert_at_end(head, 40)
-print("After inserting 40 at end:")
-print_list(head)                           # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
-print("Sum of nodes:", sum_of_nodes(head))
-count = count_nodes(head)
-print("Count of nodes:", count)
+    head = insert_at_end(head, 40)
+    print("After inserting 40 at end:")
+    print_list(head)                           # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
+    print("Sum of nodes:", sum_of_nodes(head))
+    print("Count of nodes:", count_nodes(head))
 
-head = insert_at_position(head, 25, 3)
-print("After inserting 25 at position 3:")
-print_list(head)                           # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
-sum = sum_of_nodes(head)
-print("Sum of nodes:", sum)
-count = count_nodes(head)
-print("Count of nodes:", count)
+    head = insert_at_position(head, 25, 3)
+    print("After inserting 25 at position 3:")
+    total = sum_of_nodes(head)
+    print("Sum of nodes:", total)
+    print_list(head)                           # print_list function ko call karte hain, jo ki linked list ke saare nodes print karega
+    count = count_nodes(head)
+    print("Count of nodes:", count)
 
 # --------Reverse the linked list----------
-head = reverse_linked_list(head)
-print("After reversing the list:")
-print_list(head)
+    head = reverse_linked_list(head)
+    print("After reversing the list:")
+    print_list(head)
 
 
 
@@ -164,5 +164,3 @@ print_list(head)
 # This code provides a comprehensive implementation of a singly linked list in Python, including various operations such as traversal, summation, counting nodes, insertion at different positions, and reversing the linked list. Each function is designed to handle specific tasks related to linked lists, making it a useful reference for understanding how linked lists work in practice.
 #------------------------- Thanks for reading the code and explanation. If you have any questions or need further clarification, feel free to ask!
 
-
- #My name is Abhinav Kumar and i am a software engineer. I have written this code to help you understand how linked lists work in Python. If you have any questions or need further clarification, feel free to ask!
